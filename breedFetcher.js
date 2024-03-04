@@ -1,6 +1,6 @@
 const request = require('request'); 
 
-const breedFetcher = (breed) =>  {
+const fetchBreedDescription = (breed) =>  {
   const apiurl = `https://api.thecatapi.com/v1/breeds/search?q=${breed}`;
 
 request.get(apiurl, (error, response, body) => {
@@ -23,11 +23,4 @@ const firstBreed = breeds[0];
 
 )};
 
-
-const [, , userBreed] = process.argv;
-
-if (!userBreed) {
-  console.error('Usage: node breedFetcher.js <breed-name>');
-} else {
-  breedFetcher(userBreed);
-}
+module.exports = {fetchBreedDescription}; 
